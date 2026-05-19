@@ -1,5 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { IsNotEmpty } from "class-validator";
+import { Review } from "./Reviews.js";
+import { MovieStatus } from "./MovieStatus.js";
 
 @Entity("movies")
 export class Movie {
@@ -34,4 +36,10 @@ export class Movie {
     onUpdate: "CURRENT_TIMESTAMP",
   })
   updated_at!: Date;
+
+  @OneToMany(() => Review, (review) => review.movie)
+  reviews!: Review[];
+
+  @OneToMany(() => MovieStatus, (movie_status) => movie_status.movie)
+  movie_status!: MovieStatus[];
 }
