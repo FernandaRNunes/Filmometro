@@ -1,15 +1,19 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./Usuarios.js";
+import { Movie } from "./Movie.js";
 
 @Entity("movie_status")
 export class MovieStatus {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column("integer")
-  user_id!: number;
+  @ManyToOne(() => User, (user) => user.movie_status, { onDelete: "CASCADE" })
+  user!: User;
 
-  @Column("integer")
-  movie_id!: number;
+  @ManyToOne(() => Movie, (movie) => movie.movie_status, {
+    onDelete: "CASCADE",
+  })
+  movie!: Movie;
 
   @Column("varchar", { length: 30 })
   status!: string;
