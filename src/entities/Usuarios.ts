@@ -1,4 +1,13 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from "typeorm";
+import { Review } from "./Reviews.js";
+import { MovieStatus } from "./MovieStatus.js";
 
 export enum UserRole {
   ADMIN = "admin",
@@ -6,7 +15,7 @@ export enum UserRole {
   MODERATOR = "moderator",
 }
 
-@Entity()
+@Entity("usuarios")
 export class User {
   @PrimaryGeneratedColumn()
   id!: number;
@@ -14,18 +23,27 @@ export class User {
   @Column("varchar", { length: 150 })
   name!: string;
 
-  @Column("varchar", { length: 150 })
+  @Column("varchar", {
+    length: 150,
+    unique: true,
+  })
   email!: string;
 
   @Column("varchar")
   password!: string;
 
-  @Column()
+  @CreateDateColumn()
   created_at!: Date;
 
-  @Column()
+  @UpdateDateColumn()
   updated_at!: Date;
 
   @Column({ type: "enum", enum: UserRole, default: UserRole.USER })
   role!: UserRole;
+
+  @OneToMany(() => Review, (review) => review.user)
+  reviews!: Review[];
+
+  @OneToMany(() => MovieStatus, (movie_status) => movie_status.user)
+  movie_status!: MovieStatus[];
 }

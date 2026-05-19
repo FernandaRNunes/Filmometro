@@ -1,0 +1,9 @@
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+    "name": "Leonardo Pereira",
+    "email": "lp4@crf.com",
+    "password": "karolino4",
+    "role": "user"
+}
