@@ -1,9 +1,53 @@
+//==================USUÁRIOS===================
 POST http://localhost:3000/api/usuarios
 Content-Type: application/json
 
 {
-    "name": "Leonardo Pereira",
-    "email": "lp4@crf.com",
-    "password": "karolino4",
+    "name": "Nicolas da Cruz",
+    "email": "ndlc18@crf.com",
+    "password": "112233",
     "role": "user"
 }
+###
+
+GET http://localhost:3000/api/usuarios
+###
+
+DELETE http://localhost:3000/api/usuarios/5
+###
+
+PATCH http://localhost:3000/api/usuarios/3
+Content-Type: application/json
+
+{
+    "password": "Nacopa2026"
+}
+###
+
+//============FILMES==========================
+
+POST http://localhost:3000/api/movies
+Content-Type: application/json
+
+{
+  "title": "Cidade ",
+  "synopsis": "A história do crescimento do Rio de Janeiro.",
+  "genre": "Crime",
+  "releaseDate": "2002-08-30"
+}
+###
+
+GET http://localhost:3000/api/movies
+###
+
+PATCH http://localhost:3000/api/movies/1
+Content-Type: application/json
+
+{
+  "genre": "Sci-Fi"
+}
+###
+
+DELETE http://localhost:3000/api/movies/4
+
+###
