@@ -43,7 +43,12 @@ export class ReviewService {
     if (!review) {
       throw new Error("Avaliação não encontrada");
     }
-    this.reviewRepository.merge(review, data);
+    if (data.rating !== undefined) {
+      review.rating = data.rating;
+    }
+    if (data.comment !== undefined) {
+      review.comment = data.comment;
+    }
     return await this.reviewRepository.save(review);
   };
 
