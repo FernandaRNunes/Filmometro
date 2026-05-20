@@ -4,12 +4,14 @@ import type { Application } from "express";
 import { AppDataSource } from "./data-source.js";
 import { UsuarioRouter } from "./routes/UsuarioRoutes.js";
 import { MovieRouter } from "./routes/MovieRoutes.js";
+import { ReviewRouter } from "./routes/ReviewRoutes.js";
 
 const app: Application = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use("/api/movies", MovieRouter);
+app.use("/api/reviews", ReviewRouter);
 app.use("/api/usuarios", UsuarioRouter);
 
 AppDataSource.initialize()

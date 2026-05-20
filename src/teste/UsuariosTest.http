@@ -1,0 +1,24 @@
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+    "name": "Nicolas da Cruz",
+    "email": "ndlc18@crf.com",
+    "password": "112233",
+    "role": "user"
+}
+###
+
+GET http://localhost:3000/api/usuarios
+###
+
+DELETE http://localhost:3000/api/usuarios/5
+###
+
+PATCH http://localhost:3000/api/usuarios/3
+Content-Type: application/json
+
+{
+    "password": "Nacopa2026"
+}
+###
