@@ -1,0 +1,24 @@
+POST http://localhost:3000/api/movie-status
+Content-Type: application/json
+
+{
+  "userId": 4,
+  "movieId": 1,
+  "status": "assistido"
+}
+###
+
+GET http://localhost:3000/api/movie-status
+###
+
+PATCH http://localhost:3000/api/movie-status/2
+Content-Type: application/json
+
+{
+  "status": "aguardando_lancamento"
+}
+###
+
+DELETE http://localhost:3000/api/movie-status/2
+
+###
