@@ -1,12 +1,12 @@
 import type { Request, Response, NextFunction } from "express";
-import { UsuarioService } from "../services/UsuarioService.js";
+import { MovieService } from "../services/MovieService.js";
 
-export class UsuarioController {
-  private usuarioService = new UsuarioService();
+export class MovieController {
+  private movieService = new MovieService();
   create = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const newUser = await this.usuarioService.create(req.body);
-      return res.status(201).json(newUser);
+      const newMovie = await this.movieService.create(req.body);
+      return res.status(201).json(newMovie);
     } catch (error: unknown) {
       next(error);
     }
@@ -14,8 +14,8 @@ export class UsuarioController {
 
   list = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const users = await this.usuarioService.listAll();
-      return res.json(users);
+      const movies = await this.movieService.listAll();
+      return res.json(movies);
     } catch (error: unknown) {
       next(error);
     }
@@ -27,7 +27,7 @@ export class UsuarioController {
       if (isNaN(id)) {
         throw new Error("ID inválido");
       }
-      await this.usuarioService.delete(id);
+      await this.movieService.delete(id);
       return res.status(204).send();
     } catch (error: unknown) {
       next(error);
@@ -40,8 +40,8 @@ export class UsuarioController {
       if (isNaN(id)) {
         throw new Error("ID inválido");
       }
-      const updatedUser = await this.usuarioService.update(id, req.body);
-      return res.status(200).json(updatedUser);
+      const updatedMovie = await this.movieService.update(id, req.body);
+      return res.status(200).json(updatedMovie);
     } catch (error: unknown) {
       next(error);
     }

@@ -16,7 +16,7 @@ export class Movie {
   @IsNotEmpty({ message: "A sinopse é um campo obrigatório." })
   synopsis!: string;
 
-  @Column("varchar", { length: 15 })
+  @Column("varchar", { length: 50 })
   @IsNotEmpty({ message: "O gênero é obrigatório." })
   genre!: string;
 
