@@ -5,18 +5,12 @@ import { AppDataSource } from "../data-source.js";
 export class UsuarioService {
   private userRepository = AppDataSource.getRepository(User);
 
-  create = async (
-    name: string,
-    email: string,
-    password: string,
-    role: UserRole
-  ) => {
-    const data = { name, email, password, role };
+  create = async (data: Partial<User>) => {
     const user = this.userRepository.create(data);
     return await this.userRepository.save(user);
   };
 
-  listAll = async () => {
+  listAll = async (): Promise<User[]> => {
     return await this.userRepository.find();
   };
 

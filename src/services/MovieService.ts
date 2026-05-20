@@ -5,18 +5,12 @@ import { Movie } from "../entities/Movie.js";
 export class MovieService {
   private movieRepository = AppDataSource.getRepository(Movie);
 
-  create = async (
-    title: string,
-    synopsis: string,
-    genre: string,
-    releaseDate: Date
-  ) => {
-    const data = { title, synopsis, genre, releaseDate };
+  create = async (data: Partial<Movie>) => {
     const movie = this.movieRepository.create(data);
     return await this.movieRepository.save(movie);
   };
 
-  listAll = async () => {
+  listAll = async (): Promise<Movie[]> => {
     return await this.movieRepository.find();
   };
 
