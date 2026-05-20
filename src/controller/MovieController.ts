@@ -5,13 +5,7 @@ export class MovieController {
   private movieService = new MovieService();
   create = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { title, synopsis, genre, releaseDate } = req.body;
-      const newMovie = await this.movieService.create(
-        title,
-        synopsis,
-        genre,
-        releaseDate
-      );
+      const newMovie = await this.movieService.create(req.body);
       return res.status(201).json(newMovie);
     } catch (error: unknown) {
       next(error);
