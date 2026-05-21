@@ -37,11 +37,12 @@ export class MovieStatusService {
 
   update = async (id: number, data: Partial<MovieStatus>) => {
     const movieStatus = await this.movieStatusRepository.findOneBy({ id });
-
     if (!movieStatus) {
       throw new Error("Status não encontrado");
     }
-    this.movieStatusRepository.merge(movieStatus, data);
+    if (data.status !== undefined) {
+      movieStatus.status = data.status;
+    }
     return await this.movieStatusRepository.save(movieStatus);
   };
 
