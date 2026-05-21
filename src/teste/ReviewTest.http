@@ -1,0 +1,25 @@
+POST http://localhost:3000/api/reviews
+Content-Type: application/json
+
+{
+  "userId": 4,
+  "movieId": 2,
+  "rating": 6.3,
+  "comment": "Não empolga"
+}
+###
+
+GET http://localhost:3000/api/reviews
+###
+
+PATCH http://localhost:3000/api/reviews/1
+Content-Type: application/json
+
+{
+  "rating": 9.7
+}
+###
+
+DELETE http://localhost:3000/api/reviews/3
+
+###
