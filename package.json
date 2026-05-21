@@ -1,24 +1,39 @@
 {
   "name": "inventory-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Descrição:\r O Filmômetro é uma API REST para gerenciamento de avaliações de filmes. A plataforma permite que usuários cadastrem filmes, registrem suas opiniões (reviews), atribuam notas e consultem avaliações de outros usuários. O sistema também garante que cada usuário tenha acesso apenas aos seus próprios dados privados, como suas avaliações e histórico.",
+  "keywords": [],
+  "homepage": "https://github.com/FernandaRNunes/Filmometro#readme",
+  "bugs": {
+    "url": "https://github.com/FernandaRNunes/Filmometro/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FernandaRNunes/Filmometro.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
   "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
     "dev": "node --env-file=.env --import tsx --watch src/index.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "class-validator": "^0.15.1",
     "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
     "pg": "^8.20.0",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.28"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.5.0",
     "@types/pg": "^8.20.0",
     "tsx": "^4.21.0",
