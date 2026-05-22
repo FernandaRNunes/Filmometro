@@ -6,6 +6,7 @@ import { UsuarioRouter } from "./routes/UsuarioRoutes.js";
 import { MovieRouter } from "./routes/MovieRoutes.js";
 import { ReviewRouter } from "./routes/ReviewRoutes.js";
 import { MovieStatusRouter } from "./routes/MovieStatusRoutes.js";
+import { AuthRoutes } from "./routes/AuthRoutes.js";
 
 const app: Application = express();
 const port = process.env.PORT || 3000;
@@ -15,6 +16,7 @@ app.use("/api/movies", MovieRouter);
 app.use("/api/reviews", ReviewRouter);
 app.use("/api/usuarios", UsuarioRouter);
 app.use("/api/movie-status", MovieStatusRouter);
+app.use("/api/auth", AuthRoutes);
 
 AppDataSource.initialize()
   .then(() => {
