@@ -34,7 +34,11 @@ export class ReviewController {
       if (isNaN(id)) {
         throw new Error("ID inválido");
       }
-      const updatedReview = await this.reviewService.update(id, req.body);
+      const updatedReview = await this.reviewService.update(
+        id,
+        userId,
+        req.body
+      );
       return res.status(200).json(updatedReview);
     } catch (error: unknown) {
       next(error);

@@ -38,8 +38,16 @@ export class ReviewService {
     });
   };
 
-  update = async (id: number, data: Partial<Review>) => {
-    const review = await this.reviewRepository.findOneBy({ id });
+  update = async (id: number, userId: number, data: Partial<Review>) => {
+    const review = await this.reviewRepository.findOne({
+      where: {
+        id,
+        user: {
+          id: userId,
+        },
+      },
+      relations: ["user"],
+    });
     if (!review) {
       throw new Error("Avaliação não encontrada");
     }
