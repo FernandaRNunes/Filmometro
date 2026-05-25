@@ -35,8 +35,16 @@ export class MovieStatusService {
     });
   };
 
-  update = async (id: number, data: Partial<MovieStatus>) => {
-    const movieStatus = await this.movieStatusRepository.findOneBy({ id });
+  update = async (id: number, userId: number, data: Partial<MovieStatus>) => {
+    const movieStatus = await this.movieStatusRepository.findOne({
+      where: {
+        id,
+        user: {
+          id: userId,
+        },
+      },
+      relations: ["user"],
+    });
     if (!movieStatus) {
       throw new Error("Status não encontrado");
     }
@@ -46,8 +54,16 @@ export class MovieStatusService {
     return await this.movieStatusRepository.save(movieStatus);
   };
 
-  delete = async (id: number) => {
-    const movieStatus = await this.movieStatusRepository.findOneBy({ id });
+  delete = async (id: number, userId: number) => {
+    const movieStatus = await this.movieStatusRepository.findOne({
+      where: {
+        id,
+        user: {
+          id: userId,
+        },
+      },
+      relations: ["user"],
+    });
     if (!movieStatus) {
       throw new Error("Status não encontrado");
     }

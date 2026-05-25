@@ -6,7 +6,8 @@ export class MovieStatusController {
 
   create = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { userId, movieId, status } = req.body;
+      const { movieId, status } = req.body;
+      const userId = req.user_id!;
       const newMovieStatus = await this.movieStatusService.create(
         userId,
         movieId,
@@ -33,8 +34,10 @@ export class MovieStatusController {
       if (isNaN(id)) {
         throw new Error("ID inválido");
       }
+      const userId = req.user_id;
       const updatedMovieStatus = await this.movieStatusService.update(
         id,
+        userId!,
         req.body
       );
       return res.status(200).json(updatedMovieStatus);
@@ -49,7 +52,8 @@ export class MovieStatusController {
       if (isNaN(id)) {
         throw new Error("ID inválido");
       }
-      await this.movieStatusService.delete(id);
+      const userId = req.user_id;
+      await this.movieStatusService.delete(id, userId!);
       return res.status(204).send();
     } catch (error: unknown) {
       next(error);

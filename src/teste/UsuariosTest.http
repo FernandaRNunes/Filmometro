@@ -2,10 +2,9 @@ POST http://localhost:3000/api/usuarios
 Content-Type: application/json
 
 {
-    "name": "Pedro",
-    "email": "p09@crf.com",
-    "password": "0123",
-    "role": "user"
+  "name": "Silas 2",
+  "email": "silas@email.com",
+  "password": "123456"
 }
 ###
 

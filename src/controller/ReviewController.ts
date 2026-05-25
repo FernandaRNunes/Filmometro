@@ -6,7 +6,8 @@ export class ReviewController {
 
   create = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { userId, movieId, rating, comment } = req.body;
+      const { movieId, rating, comment } = req.body;
+      const userId = req.user_id!;
       const newReview = await this.reviewService.create(
         userId,
         movieId,
@@ -52,7 +53,8 @@ export class ReviewController {
       if (isNaN(id)) {
         throw new Error("ID inválido");
       }
-      await this.reviewService.delete(id);
+      const userId = req.user_id;
+      await this.reviewService.delete(id, userId!);
       return res.status(204).send();
     } catch (error: unknown) {
       next(error);
