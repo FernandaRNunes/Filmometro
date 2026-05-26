@@ -2,6 +2,11 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./Usuarios.js";
 import { Movie } from "./Movie.js";
 
+export enum MovieStatusType {
+  WATCHED = "assistido",
+  WATCHLIST = "para_assistir",
+}
+
 @Entity("movie_status")
 export class MovieStatus {
   @PrimaryGeneratedColumn()
@@ -15,8 +20,11 @@ export class MovieStatus {
   })
   movie!: Movie;
 
-  @Column("varchar", { length: 30 })
-  status!: string;
+  @Column({
+  type: "enum",
+  enum: MovieStatusType,
+  })
+  status!: MovieStatusType;
 
   @Column("timestamp", {
     default: () => "CURRENT_TIMESTAMP",
