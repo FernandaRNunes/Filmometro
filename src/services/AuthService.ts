@@ -7,8 +7,9 @@ export class AuthService {
   private userRepository = AppDataSource.getRepository(User);
 
   login = async (email: string, password: string) => {
-    const user = await this.userRepository.findOneBy({
-      email,
+    const user = await this.userRepository.findOne({
+      where: { email },
+      select: ["id", "password", "role"],
     });
     if (!user) {
       throw new Error("E-mail ou senha inválidos");

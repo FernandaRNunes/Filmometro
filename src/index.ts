@@ -7,6 +7,7 @@ import { MovieRouter } from "./routes/MovieRoutes.js";
 import { ReviewRouter } from "./routes/ReviewRoutes.js";
 import { MovieStatusRouter } from "./routes/MovieStatusRoutes.js";
 import { AuthRoutes } from "./routes/AuthRoutes.js";
+import { errorMiddleware } from "./middleware/ErrorMiddleware.js";
 
 const app: Application = express();
 const port = process.env.PORT || 3000;
@@ -17,6 +18,7 @@ app.use("/api/reviews", ReviewRouter);
 app.use("/api/usuarios", UsuarioRouter);
 app.use("/api/movie-status", MovieStatusRouter);
 app.use("/api/auth", AuthRoutes);
+app.use(errorMiddleware);
 
 AppDataSource.initialize()
   .then(() => {

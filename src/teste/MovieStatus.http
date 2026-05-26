@@ -1,8 +1,10 @@
+@authToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6InVzZXIiLCJpYXQiOjE3Nzk3NTU2NzEsImV4cCI6MTc3OTg0MjA3MX0._puGBCDUf_WMrgACF4t4mAMrABr8zlmlfJ0GOCnTPJc
+
 POST http://localhost:3000/api/movie-status
 Content-Type: application/json
+Authorization: Bearer {{authToken}}
 
 {
-  "userId": 4,
   "movieId": 1,
   "status": "assistido"
 }

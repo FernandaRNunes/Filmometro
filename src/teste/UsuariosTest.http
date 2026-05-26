@@ -2,10 +2,7 @@ POST http://localhost:3000/api/usuarios
 Content-Type: application/json
 
 {
-    "name": "Pedro",
-    "email": "p09@crf.com",
-    "password": "0123",
-    "role": "user"
+  "name": "Silas 2",
 }
 ###
 
@@ -23,12 +20,12 @@ Content-Type: application/json
 }
 ###
 
-// login
+//****************** LOGIN ******************
 
 POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "lp4@crf.com",
-  "password": "MilitãoFora"
+  "email": "silas@email.com",
+  "password": "senhaerrada"
 }
