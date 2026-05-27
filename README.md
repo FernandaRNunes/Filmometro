@@ -1,6 +1,6 @@
-# 🎬 Filmômetro
+## 🎬 Filmômetro
 
-## Descrição
+### Descrição
 
 O Filmômetro é uma API REST para gerenciamento de filmes, avaliações e status de visualização.
 
@@ -10,7 +10,7 @@ O sistema também possui autenticação com JWT, proteção de rotas privadas e 
 
 ---
 
-# Funcionalidades
+### Funcionalidades
 
 - Cadastro e autenticação de usuários
 - CRUD de filmes
@@ -21,7 +21,7 @@ O sistema também possui autenticação com JWT, proteção de rotas privadas e 
 
 ---
 
-# Regras de Negócio
+### Regras de Negócio
 
 - Usuário não pode avaliar o mesmo filme mais de uma vez
 - Apenas filmes marcados como "Assistido" podem receber avaliações
@@ -30,7 +30,7 @@ O sistema também possui autenticação com JWT, proteção de rotas privadas e 
 
 ---
 
-# Segurança
+### Segurança
 
 - JWT para autenticação
 - Senhas protegidas com bcrypt
@@ -39,7 +39,7 @@ O sistema também possui autenticação com JWT, proteção de rotas privadas e 
 
 ---
 
-# Tecnologias
+### Tecnologias
 
 - Node.js
 - Express
