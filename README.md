@@ -48,3 +48,18 @@ O sistema também possui autenticação com JWT, proteção de rotas privadas e 
 - PostgreSQL
 - JWT
 - bcryptjs
+
+---
+
+### Utilizar o .env
+
+DB_TYPE=postgres
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=aluno
+DB_DATABASE=filmometro
+PORT=3000
+
+JWT_SECRET=filmometro_secret
+
