@@ -53,7 +53,7 @@ O sistema também possui autenticação com JWT, proteção de rotas privadas e 
 
 ### Utilizar o .env
 
-DB_TYPE=postgres
+DB_TYPE=postgres  
 DB_HOST=localhost
 DB_PORT=5432
 DB_USERNAME=postgres
