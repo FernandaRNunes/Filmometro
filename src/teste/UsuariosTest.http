@@ -2,7 +2,9 @@ POST http://localhost:3000/api/usuarios
 Content-Type: application/json
 
 {
-  "name": "Silas 2",
+  "name": "Jose",
+  "email": "j@email.com",
+  "password": "1234"
 }
 ###
 
@@ -12,20 +14,27 @@ GET http://localhost:3000/api/usuarios
 DELETE http://localhost:3000/api/usuarios/5
 ###
 
-PATCH http://localhost:3000/api/usuarios/3
+PATCH http://localhost:3000/api/usuarios/7
 Content-Type: application/json
 
 {
-    "password": "MilitãoFora"
+    "password": "1234"
 }
 ###
 
 //****************** LOGIN ******************
+###
 
 POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "silas@email.com",
-  "password": "senhaerrada"
+  "email": "j@email.com",
+  "password": "1234"
 }
+
+###
+
+GET /api/usuarios?page=2&limit=3
+
+###

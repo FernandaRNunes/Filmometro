@@ -6,7 +6,7 @@ Authorization: Bearer {{authToken}}
 
 {
   "movieId": 1,
-  "status": "assistido"
+  "status": "njdfjhsdf"
 }
 ###
 

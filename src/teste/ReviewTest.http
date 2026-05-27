@@ -2,8 +2,7 @@ POST http://localhost:3000/api/reviews
 Content-Type: application/json
 
 {
-  "userId": 4,
-  "movieId": 2,
+  "userId": 7,
   "rating": 6.3,
   "comment": "Não empolga"
 }
@@ -21,5 +20,9 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:3000/api/reviews/3
+
+###
+
+GET /api/reviews?page=1&limit=5
 
 ###

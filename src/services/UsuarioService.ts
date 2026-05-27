@@ -25,8 +25,27 @@ export class UsuarioService {
     return await this.userRepository.save(user);
   };
 
-  listAll = async (): Promise<User[]> => {
-    return await this.userRepository.find();
+  listAll = async (page: number, limit: number) => {
+    const skip = (page - 1) * limit;
+    const [users, totalItems] = await this.userRepository.findAndCount({
+      take: limit,
+      skip,
+      order: {
+        id: "DESC",
+      },
+    });
+    const totalPages = Math.ceil(totalItems / limit);
+    return {
+      data: users,
+      meta: {
+        totalItems,
+        currentPage: page,
+        totalPages,
+        itemsPerPage: limit,
+        hasNext: page < totalPages,
+        hasPrevious: page > 1,
+      },
+    };
   };
 
   delete = async (id: number) => {

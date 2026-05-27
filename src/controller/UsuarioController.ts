@@ -14,8 +14,10 @@ export class UsuarioController {
 
   list = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const users = await this.usuarioService.listAll();
-      return res.json(users);
+      const page = Math.max(1, Number(req.query.page) || 1);
+      const limit = Math.max(1, Math.min(100, Number(req.query.limit) || 10));
+      const result = await this.usuarioService.listAll(page, limit);
+      return res.status(200).json(result);
     } catch (error: unknown) {
       next(error);
     }

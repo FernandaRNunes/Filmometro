@@ -2,7 +2,7 @@ import { AppDataSource } from "../data-source.js";
 import { Review } from "../entities/Reviews.js";
 import { User } from "../entities/Usuarios.js";
 import { Movie } from "../entities/Movie.js";
-import { MovieStatus } from "../entities/MovieStatus.js";
+import { MovieStatus, MovieStatusType } from "../entities/MovieStatus.js";
 
 export class ReviewService {
   private reviewRepository = AppDataSource.getRepository(Review);
@@ -41,7 +41,7 @@ export class ReviewService {
       where: {
         user: { id: userId },
         movie: { id: movieId },
-        status: "Assistido",
+        status: MovieStatusType.WATCHED,
       },
       relations: ["user", "movie"],
     });
